@@ -6,7 +6,11 @@ TERRAFORM_MODULES_PATH="/path/to/your/terraform/modules"
 # without the path to the terraform module.
 function _tgts() {
     local sub_module sub_module_dir
-    sub_module=$(rg 'source = "\$\{.*\}/([/\w-]*).*"' terragrunt.hcl -or '$1') || echo -e "\033[0;31mError: could not extract subdirectories in source.\033[0m" >&2 && return 1
+    sub_module=$(rg 'source = "\$\{.*\}/([/\w-]*).*"' terragrunt.hcl -or '$1')
+    if [ $? -ne 0 ]; then
+        echo -e "\033[0;31mError: cannot extract subdirectories in source variable.\033[0m" >&2
+        return 1
+    fi
     sub_module_dir="${TERRAFORM_MODULES_PATH}/${sub_module}"
     echo "source: $sub_module_dir"
     terragrunt "$@" --terragrunt-source  $sub_module_dir
@@ -15,9 +19,9 @@ function _tgts() {
 # Activate the following three exports if you want to use caching.
 # See https://developer.hashicorp.com/terraform/cli/config/config-file#provider-plugin-cache
 # and https://terragrunt.gruntwork.io/docs/features/provider-cache/ 
-#export TF_PLUGIN_CACHE_DIR="$HOME/.terraform.d/plugin-cache"
-#export TERRAGRUNT_PROVIDER_CACHE=1
-#export TERRAGRUNT_PROVIDER_CACHE_DIR=$TF_PLUGIN_CACHE_DIR
+export TF_PLUGIN_CACHE_DIR="$HOME/.terraform.d/plugin-cache"
+export TERRAGRUNT_PROVIDER_CACHE=1
+export TERRAGRUNT_PROVIDER_CACHE_DIR=$TF_PLUGIN_CACHE_DIR
 
 alias tg='terragrunt'
 
