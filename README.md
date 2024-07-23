@@ -5,7 +5,8 @@ Just copy `terragrunt.zsh` file to your zsh custom folder (usually `$ZSH/custom`
 ## Requirements
 - [ripgrep](https://github.com/BurntSushi/ripgrep) needs to be installed
 - [fd](https://github.com/sharkdp/fd) needs to be installed
-- Set the environment variable `TERRAFORM_MODULES_PATH` to your local terraform modules root directory.
+## Environment variables
+- `TERRAFORM_MODULES_PATH` must point to your current terraform modules root directory.
 ## Functions
 The `_tgts` functions extracts the subdirectories defined in the `source` variable in the current `terragrunt.hcl` file and executes `terragrunt ACTION --terragrunt-source $TERRAFORM_MODULES_PATH/source`. Take for example the following `terragrunt.hcl` file:
 ```bash
