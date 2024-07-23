@@ -3,7 +3,7 @@
 TERRAFORM_MODULES_PATH="/path/to/your/terraform/modules" 
 
 # Function to run "terragrunt COMMAND --terragrunt-source /path/to/your/terraform/module"
-# without the path to the terraform module.
+# without providing the path to the terraform module.
 function _tgts() {
     local sub_module sub_module_dir
     sub_module=$(rg 'source = "\$\{.*\}/([/\w-]*).*"' terragrunt.hcl -or '$1')
@@ -47,4 +47,3 @@ alias tgpsall='tgpall --terragrunt-source $TERRAFORM_MODULES_PATH'
 alias tgdsall='tgdall --terragrunt-source $TERRAFORM_MODULES_PATH'
 
 alias clearTerragruntCache='fd -t d -H -I .terragrunt-cache -X rm -rf'
-
