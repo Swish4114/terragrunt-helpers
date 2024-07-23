@@ -6,7 +6,7 @@ TERRAFORM_MODULES_PATH="/path/to/your/terraform/modules"
 # without the path to the terraform module.
 function _tgts() {
     local sub_module sub_module_dir
-    sub_module=$(rg 'source = "\$\{.*\}/([/\w-]*).*"' foo.hcl -or '$1') || return 1
+    sub_module=$(rg 'source = "\$\{.*\}/([/\w-]*).*"' terragrunt.hcl -or '$1') || echo -e "\033[0;31mError: could not extract subdirectories in source.\033[0m" >&2 && return 1
     sub_module_dir="${TERRAFORM_MODULES_PATH}/${sub_module}"
     echo "source: $sub_module_dir"
     terragrunt "$@" --terragrunt-source  $sub_module_dir
