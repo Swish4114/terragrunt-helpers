@@ -33,15 +33,15 @@ terragrunt apply --terragrunt-source $TERRAFORM_MODULES_PATH/sqs-queue
 | `tga`     | `terragrunt apply`        |
 | `tgp`     | `terragrunt plan`         |
 | `tgd`     | `terragrunt destroy`      |
-| `tgas`    | `_tgts apply`                                                                                                                     |
-| `tgps`    | `_tgts plan`                                                                                                                      |
-| `tgds`    | `_tgts destroy`                                                                                                                   |
-| `tgis`    | `_tgts import`                                                                                                                    |
-| `tgsps`   | `_tgts state push`                                                                                                                |
-| `tgaall`  | `terragrunt run-all apply --terragrunt-non-interactive --terragrunt-parallelism 10`                                               |
-| `tgpall`  | `terragrunt run-all plan --terragrunt-non-interactive --terragrunt-parallelism 10`                                                |
-| `tgdall`  | `terragrunt run-all destroy --terragrunt-non-interactive --terragrunt-parallelism 10`                                             |
-| `tgasall` | `terragrunt run-all apply --terragrunt-non-interactive --terragrunt-parallelism 10 --terragrunt-source $TERRAFORM_MODULES_PATH`   |
-| `tgpsall` | `terragrunt run-all plan --terragrunt-non-interactive --terragrunt-parallelism 10 --terragrunt-source $TERRAFORM_MODULES_PATH`    |
-| `tgdsall` | `terragrunt run-all destroy --terragrunt-non-interactive --terragrunt-parallelism 10 --terragrunt-source $TERRAFORM_MODULES_PATH` |
-| `clearTerragruntCache` | `fd -t d -H -I .terragrunt-cache -X rm -rf`                                                                          |
+| `tgas`    | `_tgts apply`                                                                                                                                |
+| `tgps`    | `_tgts plan`                                                                                                                                 |
+| `tgds`    | `_tgts destroy`                                                                                                                              |
+| `tgis`    | `_tgts import`                                                                                                                               |
+| `tgsps`   | `_tgts state push`                                                                                                                           |
+| `tgaall`  | `terragrunt run-all apply --terragrunt-non-interactive --terragrunt-parallelism 10`                                                          |
+| `tgpall`  | `terragrunt run-all plan --terragrunt-non-interactive --terragrunt-parallelism 10`                                                           |
+| `tgdall`  | `terragrunt run-all destroy --terragrunt-non-interactive --terragrunt-parallelism 10`                                                        |
+| `tgasall` | `terragrunt run-all apply --terragrunt-non-interactive --terragrunt-parallelism 10 --terragrunt-source $(dirname $TERRAFORM_MODULES_PATH)`   |
+| `tgpsall` | `terragrunt run-all plan --terragrunt-non-interactive --terragrunt-parallelism 10 --terragrunt-source $(dirname $TERRAFORM_MODULES_PATH)`    |
+| `tgdsall` | `terragrunt run-all destroy --terragrunt-non-interactive --terragrunt-parallelism 10 --terragrunt-source $(dirname $TERRAFORM_MODULES_PATH)` |
+| `clearTerragruntCache` | `fd -t d -H -I .terragrunt-cache -X rm -rf`                                                                                     |
