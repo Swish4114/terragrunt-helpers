@@ -4,6 +4,7 @@ This is a collection of tools (mostly aliases) for working with [terragrunt](htt
 Just copy `terragrunt.zsh` file to your zsh custom folder (usually `$ZSH/custom`) and reload terminal.
 ## Requirements
 - [ripgrep](https://github.com/BurntSushi/ripgrep) needs to be installed
+- [fd](https://github.com/sharkdp/fd) needs to be installed
 - Set the environment variable `TERRAFORM_MODULES_PATH` to your local terraform modules root directory.
 ## Functions
 The `_tgts` functions extracts the subdirectories defined in the `source` variable in the current `terragrunt.hcl` file and executes `terragrunt ACTION --terragrunt-source $TERRAFORM_MODULES_PATH/source`. Take for example the following `terragrunt.hcl` file:
@@ -42,3 +43,4 @@ terragrunt apply --terragrunt-source $TERRAFORM_MODULES_PATH/sqs-queue
 | `tgasall` | `terragrunt run-all apply --terragrunt-non-interactive --terragrunt-parallelism 10 --terragrunt-source $TERRAFORM_MODULES_PATH`   |
 | `tgpsall` | `terragrunt run-all plan --terragrunt-non-interactive --terragrunt-parallelism 10 --terragrunt-source $TERRAFORM_MODULES_PATH`    |
 | `tgdsall` | `terragrunt run-all destroy --terragrunt-non-interactive --terragrunt-parallelism 10 --terragrunt-source $TERRAFORM_MODULES_PATH` |
+| `clearTerragruntCache` | `fd -t d -H -I .terragrunt-cache -X rm -rf`                                                                          |
