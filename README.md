@@ -1,10 +1,10 @@
 ## What is this?
-This is a collection of tools (mostly aliases) for working with [terragrunt](https://terragrunt.gruntwork.io/).
-## How to use?
-Just copy `terragrunt.zsh` file to your zsh custom folder (usually `$ZSH/custom`) and reload terminal.
+Oh My Zsh plugin for working with [terragrunt](https://terragrunt.gruntwork.io/).
 ## Requirements
 - [ripgrep](https://github.com/BurntSushi/ripgrep) needs to be installed
 - [fd](https://github.com/sharkdp/fd) needs to be installed
+## How to use?
+Clone this repository in your `$ZSH/custom/plugins` directory and add `terragrunt-helpers` to your `plugins` list in `~/.zshrc`.
 ## Environment variables
 - `TERRAFORM_MODULES_PATH` must point to your current terraform modules root directory.
 ## Functions

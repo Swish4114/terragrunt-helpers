@@ -1,7 +1,4 @@
 
-# Path to you terraform modules directory.
-TERRAFORM_MODULES_PATH="/path/to/your/terraform/modules" 
-
 # Function to run "terragrunt COMMAND --terragrunt-source /path/to/your/terraform/module"
 # without providing the path to the terraform module.
 function _tgts() {
