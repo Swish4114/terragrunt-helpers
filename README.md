@@ -37,7 +37,8 @@ terragrunt apply --terragrunt-source $TERRAFORM_MODULES_PATH/sqs-queue
 | `tgps`    | `_tgts plan`                                                                                                                                                                               |
 | `tgds`    | `_tgts destroy`                                                                                                                                                                            |
 | `tgis`    | `_tgts import`                                                                                                                                                                             |
-| `tgsps`   | `_tgts state push`                                                                                                                                                                         |
+| `tgsps`   | `_tgts state push`|
+| `tgius` | `_tgts init -upgrade` |
 | `tgaall`  | `terragrunt run-all apply --terragrunt-non-interactive --terragrunt-parallelism 10`                                                                                                        |
 | `tgpall`  | `terragrunt run-all plan --terragrunt-non-interactive --terragrunt-parallelism 10`                                                                                                         |
 | `tgdall`  | `tgdall(){ local result; read "result?Are you sure (y/n)? "; [[ $result =~ ^[Yy]$ ]] && tg run-all destroy --terragrunt-non-interactive --terragrunt-parallelism 10 "$@" }; noglob tgdall` |

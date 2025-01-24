@@ -35,6 +35,7 @@ alias tgds='_tgts destroy'
 alias tgis='_tgts import'
 alias tgsps='_tgts state pull'
 alias tgspus='_tgts state push'
+alias tgius='_tgts init -upgrade'
 
 alias tgaall='tg run-all apply --terragrunt-non-interactive --terragrunt-parallelism 10'
 alias tgdall='tgdall(){ local result; read "result?Are you sure (y/n)? "; [[ $result =~ ^[Yy]$ ]] && tg run-all destroy --terragrunt-non-interactive --terragrunt-parallelism 10 "$@" }; noglob tgdall'
